@@ -1,0 +1,68 @@
+{% extends "Kike/base.html" %}
+
+{% block Contenido %}
+
+<div class="container px-5 mt-4">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="mt-4 p-2 border rounded">
+                <h3 class="text-center mt-3">Eliminar Zapatilla</h3>
+                <div class="alert alert-danger" role="alert">
+                    <h1>Atención:</h1>
+                    <p><strong>Está a punto de eliminar una Zapatilla:</strong></p>
+                    <h4>ID: {{Tilla.id}} - {{tilla.nombre}} {{tilla.serie}}</h4>
+                </div>
+
+
+                <div>
+                    <input type="button" value="Eliminar tilla" data-bs-toggle="modal" data-bs-target="#myModal"
+                        class="btn btn-danger text-light">
+                    <a href='{% url "tilla" %}' role='button' class="btn btn-light border">Volver</a>
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>
+<!-- Button to Open the Modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Open modal
+</button> -->
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Confirmar Eliminación</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p>¿Está seguro que desea eliminar la zapatilla?</p>
+                <p>{{tilla.nombre}} {{tilla.serie}}</p>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-danger" data-bs-dismiss="modal" value="Confirmar Eliminación">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock Contenido %}

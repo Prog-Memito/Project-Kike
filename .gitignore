@@ -1,0 +1,6 @@
+Kike/__pycache__/
+sitio/__pycache__/
+Kike/migrations/__pycache__
+Kike/migrations/*
+Kike/media/*
+db.sqlite3

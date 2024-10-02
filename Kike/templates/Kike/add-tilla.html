@@ -1,0 +1,32 @@
+{% extends "Kike/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block Contenido %}
+
+<br><br>
+<div class="card">
+    <div class="card-body">
+        <div class="row col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                        <h2>Agregar Tilla</h2>
+                        <hr>
+                    <form action="" method="post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                        {{form | crispy}}
+
+                        <div class="d-flex justify-content-end">
+                            <a href="{% url "tilla" %}" class="btn btn-secondary">Cancelar</a>
+                            &nbsp:
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                        </div>
+                    </form>
+                    {{ mensaje }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock Contenido %}
